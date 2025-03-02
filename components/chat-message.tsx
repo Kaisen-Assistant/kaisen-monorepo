@@ -58,22 +58,22 @@ export default function ChatMessage({ message, isAssistantSpeaking }: ChatMessag
           {message.role === "assistant" ? (
             <>
               <AvatarImage src="/placeholder.svg?height=32&width=32" alt="Kaisen" />
-              <AvatarFallback className="bg-purple-700 text-white">KA</AvatarFallback>
+              <AvatarFallback className="bg-black text-white">KA</AvatarFallback>
             </>
           ) : (
             <>
               <AvatarImage src="/placeholder.svg?height=32&width=32" alt="User" />
-              <AvatarFallback className="bg-slate-600 text-white">U</AvatarFallback>
+              <AvatarFallback className="bg-gray-800 text-white">U</AvatarFallback>
             </>
           )}
         </Avatar>
 
         <div>
           <div className={`flex items-center ${message.role === "user" ? "justify-end" : "justify-start"} mb-1`}>
-            <span className="text-xs text-slate-400">{message.role === "assistant" ? "Kaisen Assistant" : "You"}</span>
+            <span className="text-xs text-gray-400">{message.role === "assistant" ? "Kaisen Assistant" : "You"}</span>
 
             {message.agent && (
-              <Badge variant="outline" className="ml-2 text-xs py-0 h-4 bg-slate-800 border-slate-600 text-slate-300">
+              <Badge variant="outline" className="ml-2 text-xs py-0 h-4 bg-black border-gray-800 text-gray-300">
                 <span className="flex items-center">
                   {getAgentIcon(message.agent)}
                   <span className="ml-1">{getAgentName(message.agent)}</span>
@@ -81,12 +81,12 @@ export default function ChatMessage({ message, isAssistantSpeaking }: ChatMessag
               </Badge>
             )}
 
-            <span className="text-xs text-slate-500 ml-2">{formatTime(message.timestamp)}</span>
+            <span className="text-xs text-gray-500 ml-2">{formatTime(message.timestamp)}</span>
           </div>
 
           <div
             className={`rounded-lg p-3 ${
-              message.role === "user" ? "bg-purple-700 text-white" : "bg-slate-700 text-slate-100"
+              message.role === "user" ? "bg-black text-white" : "bg-gray-900 text-gray-100"
             }`}
           >
             <div className="relative">
