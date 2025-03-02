@@ -19,6 +19,7 @@ export default function AgentConfigDialog({
   agentConfig,
   onConfigured
 }: AgentConfigDialogProps) {
+  
   const [formData, setFormData] = useState<AgentConfig>({});
   const [error, setError] = useState<string>('');
 
@@ -63,10 +64,10 @@ export default function AgentConfigDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] bg-slate-800 text-white">
+      <DialogContent className="sm:max-w-[425px] bg-black text-white">
         <DialogHeader>
           <DialogTitle>Configure {agentConfig.name}</DialogTitle>
-          <DialogDescription className="text-slate-400">
+          <DialogDescription className="text-gray-400">
             Enter the required configuration details for this agent to function properly.
           </DialogDescription>
         </DialogHeader>
@@ -84,10 +85,10 @@ export default function AgentConfigDialog({
                 value={formData[field.key] || ''}
                 onChange={(e) => handleInputChange(field.key, e.target.value)}
                 placeholder={`Enter ${field.label.toLowerCase()}`}
-                className="bg-slate-700 border-slate-600"
+                className="bg-gray-900 border-gray-700 text-white"
               />
               {field.description && (
-                <p className="text-xs text-slate-400">{field.description}</p>
+                <p className="text-xs text-gray-400">{field.description}</p>
               )}
             </div>
           ))}
@@ -101,11 +102,16 @@ export default function AgentConfigDialog({
               type="button"
               variant="outline"
               onClick={() => onOpenChange(false)}
-              className="border-slate-600"
+              className="border-gray-700 text-white hover:bg-gray-800 hover:text-white bg-transparent"
             >
               Cancel
             </Button>
-            <Button type="submit">Save Configuration</Button>
+            <Button 
+              type="submit"
+              className="bg-gray-700 text-white hover:bg-gray-600 transition-colors"
+            >
+              Save Configuration
+            </Button>
           </div>
         </form>
       </DialogContent>
